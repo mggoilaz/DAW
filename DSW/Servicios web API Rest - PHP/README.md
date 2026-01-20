@@ -79,6 +79,7 @@ C -- Sí --> D[Eliminar producto en BD]
 C -- No --> E[Retornar error JSON]
 D --> F[Retornar éxito JSON]
 
+
 Ejemplo respuesta éxito
 
 {
