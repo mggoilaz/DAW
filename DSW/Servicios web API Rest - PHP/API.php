@@ -5,23 +5,25 @@ header("Content-Type: application/json");
 $host = "localhost";
 $dbname = "tienda";
 $user = "postgres";
-$password = "postgres";
+$password = "123456";
 
-// Token simple para la práctica
-define("API_TOKEN", "12345");
+// Token simple
+define("API_TOKEN", "123456");
 
 // ---------- COMPROBAR MÉTODO ----------
 $method = $_SERVER['REQUEST_METHOD'];
 
 if ($method !== 'PUT' && $method !== 'DELETE') {
+    http_response_code(405);
     echo json_encode([
         "error" => "Método no permitido"
     ]);
     exit;
 }
 
-// ---------- COMPROBAR TOKEN ----------
+// ---------- COMPROBAR TOKEN (GET) ----------
 if (!isset($_GET['token']) || $_GET['token'] !== API_TOKEN) {
+    http_response_code(401);
     echo json_encode([
         "error" => "Token inválido o no proporcionado"
     ]);
@@ -34,6 +36,7 @@ try {
     $dbh = new PDO($dsn, $user, $password);
     $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
+    http_response_code(500);
     echo json_encode([
         "error" => "Error de conexión"
     ]);
@@ -50,7 +53,7 @@ if ($method === 'DELETE') {
         exit;
     }
 
-    $id = $_GET['id'];
+    $id = (int) $_GET['id'];
 
     try {
         $stmt = $dbh->prepare("DELETE FROM producto WHERE id = :id");
@@ -66,7 +69,6 @@ if ($method === 'DELETE') {
                 "mensaje" => "Producto eliminado correctamente"
             ]);
         }
-
     } catch (PDOException $e) {
         echo json_encode([
             "error" => "Error al eliminar el producto"
@@ -91,10 +93,10 @@ if ($method === 'PUT') {
         exit;
     }
 
-    $id = $_GET['id'];
+    $id = (int) $_GET['id'];
     $nombre = $_GET['nombre'];
     $precio = $_GET['precio'];
-    $id_fabricante = $_GET['id_fabricante'];
+    $id_fabricante = (int) $_GET['id_fabricante'];
 
     try {
         $sql = "
@@ -121,7 +123,6 @@ if ($method === 'PUT') {
                 "mensaje" => "Producto actualizado correctamente"
             ]);
         }
-
     } catch (PDOException $e) {
         echo json_encode([
             "error" => "Error al actualizar el producto"
@@ -130,4 +131,3 @@ if ($method === 'PUT') {
 
     exit;
 }
-?>
