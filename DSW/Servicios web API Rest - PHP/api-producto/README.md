@@ -239,5 +239,5 @@ Authorization: Bearer miclave123
 
 # 👨‍💻 Autor
 
-Desarrollado por **Marco Gabriel Goitia Lazarte*  
+Desarrollado por *Marco Gabriel Goitia Lazarte*  
 Proyecto académico enfocado en prácticas profesionales y aprendizaje de arquitectura REST.
