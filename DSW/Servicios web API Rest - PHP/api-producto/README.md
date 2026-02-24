@@ -33,6 +33,7 @@ Actualiza un producto por su `id`.
 ## 📌 Headers
 
 
+
 ```http
 
 Authorization: Bearer <token>
