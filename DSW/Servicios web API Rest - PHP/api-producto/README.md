@@ -32,6 +32,8 @@ Actualiza un producto por su `id`.
 
 ## 📌 Headers
 
+
 ```http
+
 Authorization: Bearer <token>
 Content-Type: application/x-www-form-urlencoded
