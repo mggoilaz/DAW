@@ -4,6 +4,7 @@ header("Content-Type: application/json");
 require_once "../config/database.php";
 require_once "../middleware/auth.php";
 
+
 validarToken();
 
 $database = new Database();
