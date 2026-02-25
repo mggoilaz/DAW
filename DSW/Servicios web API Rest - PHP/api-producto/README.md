@@ -236,8 +236,3 @@ Authorization: Bearer miclave123
 - Versionado de API
 
 ---
-
-# 👨‍💻 Autor
-
-Desarrollado por *Marco Gabriel Goitia Lazarte*  
-Proyecto académico enfocado en prácticas profesionales y aprendizaje de arquitectura REST.
