@@ -1,16 +1,76 @@
-# Proyecto Laravel – GestorProductos
+# 🛒 Proyecto Laravel – GestorProductos
 
-## 📌 Enunciado
+## 📌 Descripción
 
-Desarrollo de una aplicación web utilizando el framework Laravel con el objetivo de aplicar la arquitectura MVC (Modelo-Vista-Controlador).
+Proyecto desarrollado con el framework Laravel como primera toma de contacto con la arquitectura MVC (Modelo-Vista-Controlador).
 
-La aplicación debe:
+La aplicación se conecta a la base de datos `tienda` y muestra el contenido de la tabla `producto` cuando el usuario accede a la URL principal.
 
-- Conectarse a la base de datos `tienda`.
-- Obtener los datos de la tabla `producto`.
-- Mostrar el listado de productos en una vista.
-- Implementar controlador, modelo y vista.
-- Configurar rutas mediante el archivo `web.php`.
-- Ejecutarse mediante el servidor integrado de Laravel.
+---
 
-Como ampliación opcional, se permitirá mostrar un único producto a través de su identificador en la URL.
+## 🎯 Objetivos
+
+- Comprender la arquitectura MVC.
+- Crear y configurar un proyecto Laravel.
+- Conectar Laravel con una base de datos PostgreSQL.
+- Implementar rutas mediante `web.php`.
+- Crear un controlador, un modelo y una vista.
+- Mostrar datos dinámicos utilizando Blade.
+
+---
+
+## 🛠 Tecnologías utilizadas
+
+- Laravel
+- PHP
+- PostgreSQL
+- Composer
+- Blade
+- Servidor integrado de Laravel
+
+---
+
+## 🧱 Estructura MVC implementada
+
+- **Modelo:** `ModeloProductos`  
+  Asociado a la tabla `producto`.
+
+- **Controlador:** `ControladorProductos`  
+  Contiene la función `MuestraProductos()` que obtiene los datos y los envía a la vista.
+
+- **Vista:** `VistaProductos`  
+  Muestra el listado de productos utilizando directivas Blade.
+
+---
+
+## 🌐 Ruta principal
+
+```php
+Route::get('/', [ControladorProductos::class, 'MuestraProductos'])->name('Productos');
+```
+
+---
+
+## ▶️ Ejecución del proyecto
+
+Para iniciar el servidor de desarrollo:
+
+```bash
+php artisan serve
+```
+
+Acceder desde el navegador a:
+
+```
+http://localhost:8000
+```
+
+---
+
+## 📈 Posible ampliación
+
+- Mostrar un único producto mediante su identificador en la URL.
+- Añadir más vistas.
+- Implementar operaciones CRUD completas.
+
+---
